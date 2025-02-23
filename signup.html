@@ -64,11 +64,16 @@
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
 
-            localStorage.setItem("UserName", name);
-            localStorage.setItem("UserEmail", email);
-            localStorage.setItem("UserPassword", password);
-
-            window.location.href = "signin.html";
+           fetch("YOUR_GOOGLE_SCRIPT_WEB_APP_URL", { 
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name: name, email: email, password: password })
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("signupForm").reset();
+            })
+            .catch(error => alert("Error: " + error));
         });
     </script>
 
