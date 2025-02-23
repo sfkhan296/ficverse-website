@@ -64,7 +64,7 @@
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
 
-           fetch("YOUR_GOOGLE_SCRIPT_WEB_APP_URL", { 
+           fetch("https://script.google.com/macros/s/AKfycbzMBoGiLpBG_3K6BnEarouz6DLq6YR8tUoSa_S7Nzu55CNHgXfIOur_QqEwtkcQ-h7n/exec", { 
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name: name, email: email, password: password })
