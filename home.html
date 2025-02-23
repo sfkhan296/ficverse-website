@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="home.html"><img src="logo.png" alt="Ficverse Logo" class="logo"></a>
+            <h1>Ficverse</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="book.html">Books</a></li>
+                <li><a href="audiobook.html">AudioBooks</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <button id="logoutBtn">Log Out</button>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <section id="home" class="hero">
+        <h2 style="color: black;">Welcome to Ficverse!</h2>
+    <h3 id="welcomeMessage" style="color: black;"></h3>
+
+    <script>
+        // Check if user is logged in
+        let isLoggedIn = localStorage.getItem("IsLoggedIn");
+        let userName = localStorage.getItem("UserName");
+
+        if (isLoggedIn === "true") {
+            document.getElementById("welcomeMessage").innerText = "Welcome, " + userName + "!";
+        } else {
+            alert("Please sign in first!");
+            window.location.href = "signin.html"; // Redirect to sign-in if not logged in
+        }
+
+        // Logout Functionality
+        document.getElementById("logoutBtn").addEventListener("click", function() {
+            localStorage.removeItem("IsLoggedIn");
+            window.location.href = "index.html"; // Redirect to sign-in page
+        });
+    </script><br>
+        <h2 style="color: black;">Gateway to Endless Stories</h2>
+        <p style="color: black;">Explore a universe of digital eBooks & audiobooks at your fingertips.</p>
+        <a href="#books" class="btn">Browse Books</a>
+    </section>
+
+    <section id="about">
+        <h2>About Ficverse</h2>
+        <p>Ficverse is a digital marketplace for readers and authors to discover, publish, and enjoy stories like never before.</p>
+    </section>
+
+    <section id="books">
+        <h2>Explore Our Books</h2>
+        <div class="book-container">
+            <div class="book">
+                <img src="The Forest of Enchantments.jpg" alt="Book 1">
+                <h3>The Forest of Enchantments</h3>
+                <a href="forest-of-enchantments.pdf" target="_blank">Read</a><br><br>
+                <a href="forest-of-enchantments.pdf" download="Forest-of-Enchantments.pdf"><button>Download Book</button></a>
+            </div>
+            <div class="book">
+                <img src="it ends with us.jpg" alt="Book 2">
+                <h3>It Ends with Us</h3>
+                <a href="It Ends with Us - PDF Room.pdf" target="_blank">Read</a><br><br>
+                <a href="It Ends with Us - PDF Room.pdf" download="It Ends with Us.pdf"><button>Download Book</button></a>
+            </div>
+            <div class="book">
+                <img src="Harry potter.jpg" alt="Book 3">
+                <h3>Harry Potter</h3>
+                <a href="harrypotter.pdf" target="_blank">Read</a><br><br>
+                <a href="harrypotter.pdf" download="Harry Potter Series(1-7).pdf"><button>Download Book</button></a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>Ficverse.<br>
+            Batch-3<br>
+            Idea Creation<br>
+            Presented by<br>
+            2411CS030431 | 2411CS030401 | 2411CS030442 | 2411CS030375 | 2411CS030419<br>
+            MRUH
+        </p>
+    </footer>
+</body>
+</html>
